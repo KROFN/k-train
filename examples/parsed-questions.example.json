@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "source": "manual",
+    "courseId": "ege_russian",
+    "description": "Example import file with one question per course",
+    "generatedAt": "2026-01-15T10:00:00Z",
+    "parserVersion": "1.0.0"
+  },
+  "questions": [
+    {
+      "source": "manual",
+      "courseId": "ege_russian",
+      "subject": "russian",
+      "exam": "ege",
+      "examNumber": 4,
+      "topic": "Орфография",
+      "subtopic": "Правописание приставок",
+      "difficulty": "medium",
+      "type": "single_choice",
+      "prompt": "В каком слове правописание приставки определяется правилом: «На конце приставки пишется буква З, обозначающая звонкий согласный, перед корнем, начинающимся со звонкого согласного»?",
+      "options": [
+        { "id": "a", "text": "расписание" },
+        { "id": "b", "text": "сделка" },
+        { "id": "c", "text": "бескрайний" },
+        { "id": "d", "text": "восход" }
+      ],
+      "correctAnswer": { "type": "single", "value": "b" },
+      "explanation": {
+        "short": "В слове «сделка» приставка «с-» стоит перед звонким согласным «д», поэтому пишется буква «с» (приставка не изменяется). Однако в данном случае правило о выборе З/С не применяется, так как приставка «с-» неизменяемая.",
+        "detailed": "Приставки на З/С (без-/бес-, воз-/вос-, из-/ис-, раз-/рас-, чрез-/чрес-) пишутся с З перед звонкими согласными и с С перед глухими. Приставка «с-» — неизменяемая, к ней это правило не относится.",
+        "rule": "Приставки на З/С: З перед звонкими, С перед глухими. Приставка «с-» неизменяемая."
+      },
+      "tags": ["орфография", "приставки"],
+      "answerStatus": "verified",
+      "confidenceScore": 1.0
+    },
+    {
+      "source": "manual",
+      "courseId": "oge_physics",
+      "subject": "physics",
+      "exam": "oge",
+      "topic": "Электромагнитные явления",
+      "subtopic": "Закон Ома",
+      "difficulty": "easy",
+      "type": "numeric_input",
+      "prompt": "Чему равно сопротивление участка цепи, если при напряжении 12 В через него проходит ток 3 А? Ответ дайте в омах.",
+      "numericConfig": {
+        "kind": "mental_formula_problem",
+        "expectedUnit": "Ом",
+        "tolerance": 0.1
+      },
+      "correctAnswer": {
+        "type": "numeric",
+        "value": 4,
+        "unit": "Ом",
+        "tolerance": 0.1
+      },
+      "explanation": {
+        "short": "R = U / I = 12 / 3 = 4 Ом",
+        "rule": "Закон Ома для участка цепи: I = U / R, следовательно R = U / I"
+      },
+      "tags": ["электричество", "закон_ома"],
+      "answerStatus": "verified",
+      "confidenceScore": 1.0
+    },
+    {
+      "source": "manual",
+      "courseId": "belenkova_math",
+      "subject": "math",
+      "exam": "school",
+      "topic": "Формулы сокращённого умножения",
+      "difficulty": "medium",
+      "type": "formula_gap",
+      "prompt": "Заполните пропуск в формуле:",
+      "formulaTemplate": {
+        "parts": [
+          { "kind": "text", "value": "(a + b)² = a² + " },
+          { "kind": "slot", "slotId": "middle", "placeholder": "?" },
+          { "kind": "text", "value": " + b²" }
+        ]
+      },
+      "options": [
+        { "id": "a", "text": "2ab" },
+        { "id": "b", "text": "ab" },
+        { "id": "c", "text": "2a²b" },
+        { "id": "d", "text": "a²b²" }
+      ],
+      "correctAnswer": {
+        "type": "slots",
+        "value": { "middle": "a" }
+      },
+      "explanation": {
+        "short": "(a + b)² = a² + 2ab + b² — квадрат суммы двух выражений",
+        "rule": "Квадрат суммы: (a + b)² = a² + 2ab + b²"
+      },
+      "tags": ["формулы", "фсу"],
+      "answerStatus": "verified",
+      "confidenceScore": 1.0
+    },
+    {
+      "source": "fipi",
+      "sourceUrl": "https://fipi.ru/example/russian/5",
+      "sourceYear": 2025,
+      "courseId": "ege_russian",
+      "subject": "russian",
+      "exam": "ege",
+      "examNumber": 5,
+      "topic": "Синтаксис",
+      "difficulty": "hard",
+      "type": "single_choice",
+      "prompt": "Укажите предложение, в котором нужно поставить одну запятую. (Знаки препинания не расставлены.)",
+      "options": [
+        { "id": "1", "text": "Мы собирали грибы и ягоды и ходили на речку." },
+        { "id": "2", "text": "Он любил и музыку и живопись." },
+        { "id": "3", "text": "Ветер то усиливался то утихал." },
+        { "id": "4", "text": "И стар и млад пришли на праздник." }
+      ],
+      "answerStatus": "needs_manual_review",
+      "confidenceScore": 0.6,
+      "tags": ["синтаксис", "пунктуация"]
+    }
+  ]
+}
