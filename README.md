@@ -1,108 +1,48 @@
-# ЕГЭ Тренажёр — Русский язык
+# K-Train
 
-Web-тренажёр для ежедневной подготовки к ЕГЭ по русскому языку. Тренируйся, копи XP, поддерживай streak!
+Multi-course practice web app prototype for exam and study workflows.
 
-## О проекте
+> **Status:** Paused prototype.  
+> The project is kept public as an education-product experiment and is not currently maintained as an active learning platform.
 
-Ежедневный тренажёр тестовой части ЕГЭ по русскому языку. Пользователь решает короткие сессии по 5–15 минут, сразу видит результат, читает объяснения и отслеживает прогресс.
+## What it explores
 
-### Возможности
+K-Train started as a gamified EGE Russian practice app and later grew into a broader multi-course trainer concept.
 
-- **4 типа заданий**: одиночный выбор, множественный выбор, ввод текста, соответствия
-- **5 режимов практики**: быстрая, по номеру задания, по теме, по сложности, по ошибкам
-- **Геймификация**: XP, уровни, streak, сердца
-- **Прогресс**: отслеживание по темам и номерам заданий, точность, слабые места
-- **Разбор ошибок**: полный обзор с объяснениями и правилами
-- **Тёмная тема**: автоматическая и ручная переключение
-- **Адаптивный дизайн**: удобно на телефоне и десктопе
+Current project ideas include:
 
-## Технологии
+- course selection
+- public and locked courses
+- quick practice flows
+- progress tracking
+- XP, levels, streak and hearts
+- weak-topic detection
+- local progress storage
+- access-code based course unlocks
+- auth-related UI experiments
 
-- **Next.js 16** (App Router) + TypeScript
-- **Tailwind CSS 4** + shadcn/ui
-- **Zustand** — стейт-менеджмент
-- **Zod** — валидация данных
-- **localStorage** — хранение прогресса (без backend)
+Existing course examples include Russian EGE, Physics OGE and a locked math mode.
 
-## Как запустить
+## Stack
+
+- Next.js
+- TypeScript
+- React
+- Tailwind CSS
+- Zustand
+- Zod
+- Prisma / Supabase dependencies
+- Radix/shadcn-style UI components
+
+## Run locally
 
 ```bash
-# Установка зависимостей
 bun install
-
-# Запуск dev-сервера
 bun run dev
-
-# Проверка кода
-bun run lint
 ```
 
-Приложение будет доступно на `http://localhost:3000`.
+Open `http://localhost:3000`.
 
-## Структура проекта
+## Notes
 
-```
-src/
-├── app/
-│   ├── page.tsx              # Главная / Dashboard
-│   ├── practice/page.tsx     # Выбор режима практики
-│   ├── session/page.tsx      # Тренировочная сессия
-│   ├── results/page.tsx      # Прогресс и статистика
-│   ├── review/page.tsx       # Разбор ошибок
-│   ├── layout.tsx            # Корневой layout + навигация
-│   └── globals.css           # Цветовая схема + тема
-│
-├── components/
-│   ├── layout/
-│   │   └── Navigation.tsx    # Навигация (десктоп + мобильная)
-│   ├── questions/
-│   │   ├── QuestionRenderer.tsx
-│   │   ├── SingleChoiceQuestion.tsx
-│   │   ├── MultiChoiceQuestion.tsx
-│   │   ├── TextInputQuestion.tsx
-│   │   ├── MatchingQuestion.tsx
-│   │   └── UnsupportedQuestion.tsx
-│   └── ui/                   # shadcn/ui компоненты
-│
-├── data/
-│   ├── questions.ts          # 59 заданий ЕГЭ
-│   └── texts.ts              # Ссылочные тексты
-│
-├── lib/
-│   ├── answer-checking.ts    # Централизованная проверка ответов
-│   ├── scoring.ts            # Расчёт XP, уровней, streak, сердец
-│   ├── storage.ts            # Безопасная работа с localStorage
-│   ├── dates.ts              # Утилиты для дат и streak
-│   ├── practice-builder.ts   # Выбор вопросов по режиму
-│   └── validators.ts         # Zod-схемы валидации
-│
-├── store/
-│   ├── quiz-store.ts         # State machine тренировки
-│   └── progress-store.ts     # Прогресс пользователя
-│
-└── types/
-    ├── quiz.ts               # Типы вопросов и сессий
-    └── progress.ts           # Типы прогресса
-```
-
-## Деплой на Vercel
-
-Проект полностью клиентский — не требует backend, базы данных или секретов.
-
-1. Подключите репозиторий к [Vercel](https://vercel.com)
-2. Настройки по умолчанию подойдут (Next.js определится автоматически)
-3. Деплой!
-
-Переменные окружения не нужны.
-
-## Архитектура
-
-- **Business logic не в UI** — компоненты только собирают ввод, проверка ответов в `answer-checking.ts`
-- **Явная state machine** — quiz-store со статусами: idle → loading → active → answering → checking → result → completed
-- **Подробные попытки** — каждый ответ хранится как `QuestionAttempt` с таймстампами и временем ответа
-- **Валидация данных** — все 59 вопросов проходят Zod-валидацию при запуске
-- **Безопасное хранение** — приложение не падает при пустом/битом localStorage
-
-## Лицензия
-
-MIT
+This repository is not presented as a finished product. It is useful as an experiment in gamified practice, course structure, progress state and educational product UI.
